@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <title>Работа с запросами</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+<div class="div_like_belt_1">
+    <p class="article_1">Выберите запрос</p>
+</div>
+
+<!--Director-->
+{% if ( name == 'Директор' or name == 'Разработчик') %}
+<div class="div_like_button_2">
+    <a href="{{ url_for('requests.requestsCustomersOrders') }}">Д: Список заказов покупателя</a>
+</div>
+{% endif %}
+<!--Customer-->
+{% if ( name == 'Заказчик' or name == 'Разработчик') %}
+<div class="div_like_button_2">
+    <a href="{{ url_for('requests.requestsOrder') }}">З: Список товаров в заказе</a>
+</div>
+{% endif %}
+<!--Worker-->
+{% if ( name == 'Работник склада' or name == 'Разработчик') %}
+<div class="div_like_button_2">
+    <a href="{{ url_for('requests.requests_ProductsWithLesserQuantity') }}">Р: Все продукты, количество которых меньше
+        чем ...</a>
+</div>
+{% endif %}
+<div class="div_like_button_2">
+    <a href="{{ url_for('Index') }}" class="a_yellow">Вернуться</a>
+</div>
+</body>
+</html>

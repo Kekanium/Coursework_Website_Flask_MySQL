@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+          integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet">
+    <script crossorigin="anonymous"
+            integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
+    <title>Сделать заказ</title>
+</head>
+<body>
+{% import 'basketUtils.html' as utils %}
+
+<div class="div_like_belt_1">
+    <p class="article_1">Сделайте заказ для покупателя - {{ CustomerName }}</p>
+</div>
+
+
+
+<div class="container">
+    <div class="row">
+        <!--Buy-->
+        <div class="col">
+            <p class="article_2">Доступные товары</p>
+            {% if products %}
+            {% for product in products %}
+                {{ utils.renderItem(product, basket=basket, isNotBought=True) }}
+            {% endfor %}
+            {% else %}
+            <p class="article_2">Нет доступных товаров</p>
+            {% endif %}
+        </div>
+        <!--Basket-->
+        <div class="col">
+            <p class="article_2">Ваша корзина</p>
+            {% if basket %}
+            {% for product in basket %}
+                {{ utils.renderItem(product, allProducts=allProducts, isNotBought=False) }}
+            {% endfor %}
+            {% else %}
+            <p class="article_2">Ваша корзина пуста</p>
+            {% endif %}
+        </div>
+        <!--Utils-->
+        <div class="col">
+            <p class="article_2">Управление</p>
+            {% if basket %}
+
+            <p class="article_5">Общая сумма: {{ totalSum }}</p>
+            <div>
+                <form method="post">
+                    <input name="clearBasket" type="hidden" value=0>
+                    <button class="clear cell" type="submit">Очистить корзину</button>
+                </form>
+            </div>
+            <div>
+                <form method="post">
+                    <input name="buy" type="hidden" value=0>
+                    <button class="clear cell" type="submit">Купить</button>
+                </form>
+            </div>
+            {% else %}
+                <p class="article_2">Нет действий</p>
+            {% endif %}
+        </div>
+    </div>
+    <p></p>
+    <div class="div_like_button_1">
+        <a class="a_yellow" href="{{ url_for('Index') }}">Вернуться</a>
+    </div>
+</body>
+</html>

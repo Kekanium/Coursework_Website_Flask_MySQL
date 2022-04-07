@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <meta charset="UTF-8">
+    <title>Успешная авторизация</title>
+</head>
+
+<body>
+<div class="div_like_belt_1">
+    <p class="article_1">Авторизация прошла успешно</p>
+</div>
+
+<p class="article_2">Вы авторизовались как {{name}}</p>
+
+<div class="div_like_button_1">
+    <a href="{{ url_for('Index') }}" class="a_yellow">Вернуться в главное меню</a>
+</div>
+</body>
+</html>

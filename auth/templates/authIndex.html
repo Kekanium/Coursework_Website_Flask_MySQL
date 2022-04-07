@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <meta charset="UTF-8">
+    <title>Авторизация</title>
+</head>
+
+<body>
+<div class="div_like_belt_1">
+    <p class="article_1">Авторизация</p>
+</div>
+
+<form action="" method="post">
+    <input type="text" name="login" placeholder="Введите логин" required>
+    <input type="password" name="password" placeholder="Введите пароль" required>
+    <button type="submit">Авторизоваться</button>
+</form>
+
+<div class="div_like_button_1">
+    <a href="{{ url_for('Index') }}" class="a_yellow">Вернуться</a>
+</div>
+</body>
+</html>

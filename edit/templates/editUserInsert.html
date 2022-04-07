@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <title>Редактировать</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+<div class="div_like_belt_1">
+    <p class="article_1">Добавление пользователя</p>
+</div>
+
+<form method="post">
+    <input type="text" name="Login" autofocus placeholder="Логин" required>
+    <input type="text" name="PasswordL" autofocus placeholder="Пароль" required>
+    <input type="number" name="AccessLevel" autofocus placeholder="Уровень доступа" min=0 max=4 required>
+    <button type="submit">Добавить</button>
+</form>
+
+<div class="div_like_button_1">
+    <a href="{{ url_for('edit.editUsers') }}" class="a_yellow">Вернуться</a>
+</div>
+</body>
+</html>

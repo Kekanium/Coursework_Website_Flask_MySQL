@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <title>Результат</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+<div class="div_like_belt_1">
+    <p class="article_1">{{title}}</p>
+</div>
+
+{% block child %}{% endblock %}
+
+{% if url_back != None %}
+<div class="div_like_button_1">
+    <a href="{{url_back}}" class="a_yellow">Вернуться к вводу параметров</a>
+</div>
+{% endif %}
+
+<div class="div_like_button_1">
+    <a href="{{ url_for('requests.requestsIndex') }}" class="a_yellow">Вернуться к выбору запроса</a>
+</div>
+</body>
+</html>

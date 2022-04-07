@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <title>Редактировать</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+<div class="div_like_belt_1">
+    <p class="article_1">Добавление продукта</p>
+</div>
+
+<form method="post">
+    <input type="text" name="Name" placeholder="Имя" autofocus required>
+    <input type="text" name="Material" placeholder="Материал" autofocus required>
+    <input type="text" name="UnitOfMeasurement" placeholder="Единица измерения" autofocus required>
+    <input type="number" name="PricePerUnit" placeholder="Цена за единицу" autofocus required>
+    <input type="number" name="ActualQuantity" placeholder="Количество" autofocus required>
+    <input type="date" name="FixationDate" placeholder="Дата фиксации" autofocus required>
+    <input type="number" name="ReservedProduct" placeholder="Зарезервировано" autofocus required>
+    <input type="date" name="ReservationDate" placeholder="Дата резервации" autofocus required>
+
+    <button type="submit">Добавить</button>
+</form>
+
+<div class="div_like_button_1">
+    <a href="{{ url_for('edit.editProducts') }}" class="a_yellow">Вернуться</a>
+</div>
+</body>
+</html>

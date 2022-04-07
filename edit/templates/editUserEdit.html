@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <title>Редактировать</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+<div class="div_like_belt_1">
+    <p class="article_1">Пользователь с id={{idLogin}}</p>
+</div>
+
+<form method="post">
+    <input type="text" name="Login" autofocus value={{ Login }} required>
+    <input type="text" name="PasswordL" autofocus value={{ PasswordL }} required>
+    <input type="number" name="AccessLevel" autofocus value={{ AccessLevel }} required>
+    <button type="submit">Изменить</button>
+</form>
+
+<div class="div_like_button_1">
+    <a href="{{ url_for('edit.editUsers') }}" class="a_yellow">Вернуться</a>
+</div>
+</body>
+</html>

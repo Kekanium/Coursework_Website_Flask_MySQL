@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head>
+    <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet">
+    <title>Выбор заказчика</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+<div class="div_like_belt_1">
+    <p class="article_1">Выберите заказчика</p>
+</div>
+
+<form method="post">
+    <input name="buy" type="hidden" value=0>
+    <div class="article_5">
+        <select name="customerId" required>
+            {% for customer in customerNames %}
+            <option value="{{ customer['idCustomer'] }}">{{ customer['Name'] }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <button type="submit">Купить</button>
+</form>
+
+<div class="div_like_button_1">
+    <a class="a_yellow" href="{{ url_for('Index') }}">Вернуться в главное меню</a>
+</div>
+</body>
+</html>

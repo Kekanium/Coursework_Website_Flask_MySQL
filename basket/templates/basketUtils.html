@@ -1,0 +1,41 @@
+{% macro renderItem(product, allProducts=None, basket=None, isNotBought = True) %}
+<div style="border-style: solid; border-color:#0000B8; margin: 5px">
+    {% if isNotBought %}
+    <p class="article_5">Артикул: {{ product['idProduct'] }}</p>
+    <p class="article_5">Наименование: {{ product['Name'] }}</p>
+    <p class="article_5">Материал: {{ product['Material'] }}</p>
+    <p class="article_5">Единица изменения: {{ product['UnitOfMeasurement'] }}</p>
+    <p class="article_5">Цена за единицу: {{ product['PricePerUnit'] }}</p>
+    <p class="article_5">Актуальное количество: {{ product['curQuantity'] }}</p>
+    <form method="post">
+        <input name="itemIdAdd" type="hidden" value="{{ product['idProduct'] }}">
+        {% if product['curQuantity'] > 0 %}
+        <input max="{{ product['curQuantity'] }}" min="1" name="itemQuantityAdd" placeholder="123" required
+               type="number">
+        <button class="clear cell" type="submit">Добавить</button>
+        {% endif %}
+    </form>
+
+    {% else %}
+        {% for productAll in allProducts %}
+            {% if productAll['idProduct'] == product[0] %}
+                <p class="article_5">Артикул: {{ productAll['idProduct'] }}</p>
+                <p class="article_5">Наименование: {{ productAll['Name'] }}</p>
+                <p class="article_5">Материал: {{ productAll['Material'] }}</p>
+                <p class="article_5">Единица изменения: {{ productAll['UnitOfMeasurement'] }}</p>
+                <p class="article_5">Цена за единицу: {{ productAll['PricePerUnit'] }}</p>
+                <p class="article_5">Товаров в корзине: {{ product[1] }}</p>
+                <p class="article_5">Сумма за позицию: {{ productAll['PricePerUnit'] * product[1] }}</p>
+                <form method="post">
+                    <input name="itemIdDelete" type="hidden" value="{{ product[0] }}">
+                    <input max="{{ product[1] }}" min="1" name="itemQuantityDelete" placeholder="123" required
+                           type="number">
+                    <button class="clear cell" type="submit">Удалить</button>
+                </form>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+
+
+</div>
+{% endmacro %}

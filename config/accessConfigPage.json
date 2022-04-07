@@ -1,0 +1,28 @@
+{
+  "Посетитель": [
+  ],
+  "Заказчик": [
+    "requests.requestsIndex",
+    "requests.requestsOrder"
+  ],
+  "Администратор": [
+    "edit.editIndex",
+    "edit.editUsers",
+    "edit.editUserEdit",
+    "edit.editUserInsert",
+    "edit.editUserDelete"
+  ],
+  "Директор": [
+    "requests.requestsIndex",
+    "requests.requestsCustomersOrders"
+  ],
+  "Работник склада": [
+    "requests.requestsIndex",
+    "requests.requests_ProductsWithLesserQuantity",
+    "edit.editIndex",
+    "edit.editProducts",
+    "edit.editProductEdit",
+    "edit.editProductInsert",
+    "edit.editProductDelete"
+  ]
+}

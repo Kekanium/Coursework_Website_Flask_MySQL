@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+	<head>
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+		<title>Работа с редактированием</title>
+  		<meta charset="UTF-8">
+	</head>
+
+	<body>
+		<div class="div_like_belt_1">
+			<p class="article_1">Выберите вариант редактирования</p>
+		</div>
+        <!--Admin-->
+{% if ( name == 'Администратор' or name == 'Разработчик') %}
+        <div class="div_like_button_2">
+			<a href="{{ url_for('edit.editUsers') }}">А: Список пользователей</a>
+		</div>
+{% endif %}
+        <!--Worker-->
+{% if ( name == 'Работник склада' or name == 'Разработчик') %}
+        <div class="div_like_button_2">
+			<a href="{{ url_for('edit.editProducts') }}">W: Все продукты</a>
+		</div>
+{% endif %}
+        <div class="div_like_button_2">
+			<a href="{{ url_for('Index') }}" class="a_yellow">Вернуться</a>
+		</div>
+	</body>
+</html>
